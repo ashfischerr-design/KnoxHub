@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnoxHub | Sheets Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #000000; color: #d1d5db; font-family: monospace; }
+        .bg-dark { background-color: #0a0a0a; }
+        .search-input { background-color: #000000; border: 1px solid #2d2d2d; color: white; outline: none; }
+        .btn-main { background-color: #1f2937; color: white; padding: 6px 12px; border: 1px solid #374151; cursor: pointer; }
+        .btn-main:hover { background-color: #374151; }
+        #createPage, #viewPage { display: none; }
+        pre { white-space: pre-wrap; background: #050505; border: 1px solid #1a1a1a; padding: 20px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+    <nav class="p-4 border-b border-[#2d2d2d] flex justify-between items-center bg-dark">
+        <div class="flex items-center gap-6">
+            <span class="text-xl font-bold tracking-widest text-white">KNOXHUB</span>
+            <input type="text" id="searchBar" oninput="filterPastes()" placeholder="Search..." class="search-input px-3 py-1 text-sm w-64">
+        </div>
+        <button onclick="showCreate()" class="text-3xl font-light text-gray-500 hover:text-white">+</button>
+    </nav>
+
+    <main id="homePage" class="max-w-4xl mx-auto mt-8 p-4">
+        <div id="pasteList" class="border border-[#2d2d2d] rounded-sm divide-y divide-[#2d2d2d]">
+            <p class="p-4 text-xs text-gray-600 uppercase">Connecting to SheetDB Network...</p>
+        </div>
+    </main>
+
+    <main id="viewPage" class="max-w-5xl mx-auto mt-8 p-4">
+        <button onclick="showHome()" class="text-xs text-gray-500 mb-4 hover:underline uppercase tracking-tighter">Back</button>
+        <div class="border border-[#2d2d2d] bg-dark rounded-sm">
+            <div class="p-3 border-b border-[#2d2d2d] font-bold text-white uppercase text-xs" id="viewTitle"></div>
+            <pre id="viewContent" class="text-sm text-gray-300 min-h-[400px]"></pre>
+        </div>
+        <div class="flex gap-2 mt-4">
+            <button onclick="copyPaste()" class="btn-main text-xs uppercase">Copy Code</button>
+            <button onclick="downloadPaste()" class="btn-main text-xs uppercase">Download .lua</button>
+        </div>
+    </main>
+
+    <div id="createPage" class="fixed inset-0 bg-black/95 flex items-center justify-center p-4">
+        <div class="bg-dark border border-[#2d2d2d] w-full max-w-2xl p-6">
+            <input type="text" id="newTitle" placeholder="SCRIPT TITLE" class="search-input w-full p-2 mb-4 uppercase text-xs">
+            <textarea id="newContent" rows="12" placeholder="PASTE LUA CODE HERE..." class="search-input w-full p-3 text-sm mb-4"></textarea>
+            <div class="flex justify-end gap-4">
+                <button onclick="hideCreate()" class="text-xs text-gray-500">CANCEL</button>
+                <button id="submitBtn" onclick="savePaste()" class="btn-main text-xs uppercase">Post Script</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // YOUR API ENDPOINT
+        const API_URL = "https://sheetdb.io/api/v1/4x94v2etasva4";
+        let allPastes = [];
+
+        function showCreate() { document.getElementById('createPage').style.display = 'flex'; }
+        function hideCreate() { document.getElementById('createPage').style.display = 'none'; }
+        function showHome() { 
+            document.getElementById('homePage').style.display = 'block'; 
+            document.getElementById('viewPage').style.display = 'none'; 
+        }
+
+        // 1. Fetch from Google Sheets
+        async function loadPastes() {
+            try {
+                const res = await fetch(API_URL);
+                const data = await res.json();
+                allPastes = data;
+                renderList(allPastes.reverse()); // Show newest first
+            } catch (e) {
+                document.getElementById('pasteList').innerHTML = `<p class="p-4 text-xs text-red-500">ERROR CONNECTING TO DATABASE</p>`;
+            }
+        }
+
+        function renderList(data) {
+            const list = document.getElementById('pasteList');
+            if (!data || data.length === 0) {
+                list.innerHTML = '<p class="p-4 text-xs text-gray-600 uppercase">No pastes found.</p>';
+                return;
+            }
+            list.innerHTML = data.map((p, index) => `
+                <div onclick="viewPaste('${p.id}')" class="p-4 hover:bg-[#0d0d0d] cursor-pointer flex justify-between items-center transition border-b border-[#1a1a1a]">
+                    <span class="text-sm font-medium tracking-tight uppercase">${p.title}</span>
+                    <span class="text-[9px] text-gray-700 uppercase">Stored</span>
+                </div>
+            `).join('');
+        }
+
+        // 2. Save to Google Sheets
+        async function savePaste() {
+            const title = document.getElementById('newTitle').value;
+            const content = document.getElementById('newContent').value;
+            if(!title || !content) return;
+
+            const btn = document.getElementById('submitBtn');
+            btn.innerText = "POSTING...";
+            btn.disabled = true;
+
+            const newEntry = {
+                data: [{
+                    id: Date.now().toString(),
+                    title: title,
+                    content: content
+                }]
+            };
+
+            await fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newEntry)
+            });
+
+            document.getElementById('newTitle').value = '';
+            document.getElementById('newContent').value = '';
+            btn.innerText = "POST SCRIPT";
+            btn.disabled = false;
+            hideCreate();
+            loadPastes();
+        }
+
+        function viewPaste(id) {
+            const p = allPastes.find(x => x.id === id);
+            document.getElementById('homePage').style.display = 'none';
+            document.getElementById('viewPage').style.display = 'block';
+            document.getElementById('viewTitle').innerText = p.title;
+            document.getElementById('viewContent').innerText = p.content;
+        }
+
+        function filterPastes() {
+            const q = document.getElementById('searchBar').value.toLowerCase();
+            renderList(allPastes.filter(p => p.title.toLowerCase().includes(q)));
+        }
+
+        function copyPaste() {
+            navigator.clipboard.writeText(document.getElementById('viewContent').innerText);
+            alert("COPIED TO EXECUTOR CLIPBOARD");
+        }
+
+        function downloadPaste() {
+            const blob = new Blob([document.getElementById('viewContent').innerText], { type: 'text/plain' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = document.getElementById('viewTitle').innerText + ".lua";
+            a.click();
+        }
+
+        loadPastes();
+    </script>
+</body>
+</html>
