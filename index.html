@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KnoxHub | Secure Storage</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <style>
+        :root {
+            --bg-main: #010409;
+            --bg-secondary: #0d1117;
+            --border: #30363d;
+            --text-main: #c9d1d9;
+            --accent: #238636;
+        }
+        body { background: var(--bg-main); color: var(--text-main); font-family: -apple-system, blinkmacsystemfont, "Segoe UI", Helvetica, Arial, sans-serif; margin: 0; }
+        
+        /* Navbar */
+        nav { background: var(--bg-secondary); padding: 15px 30px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-weight: bold; font-size: 1.5rem; color: #fff; letter-spacing: 1px; }
+        .search-bar { background: var(--bg-main); border: 1px solid var(--border); padding: 8px; color: white; border-radius: 6px; width: 300px; }
+        .add-btn { background: var(--accent); color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-size: 1.2rem; }
+
+        /* Content Container */
+        .container { max-width: 900px; margin: 20px auto; padding: 0 20px; }
+        .hidden { display: none; }
+
+        /* Paste Cards */
+        .paste-card { background: var(--bg-secondary); border: 1px solid var(--border); padding: 15px; border-radius: 6px; margin-bottom: 10px; cursor: pointer; transition: 0.2s; }
+        .paste-card:hover { border-color: #8b949e; }
+        .paste-title { font-size: 1.1rem; color: #58a6ff; font-weight: 600; }
+
+        /* Create Form */
+        .form-group { display: flex; flex-direction: column; gap: 10px; }
+        input, textarea { background: var(--bg-secondary); border: 1px solid var(--border); color: white; padding: 12px; border-radius: 6px; font-family: monospace; }
+        textarea { height: 300px; resize: vertical; }
+        .publish-btn { background: var(--accent); color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+
+        /* View Paste Interface */
+        .view-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        pre { background: #000; padding: 20px; border-radius: 6px; border: 1px solid var(--border); overflow-x: auto; white-space: pre-wrap; }
+        .action-btn { background: var(--bg-secondary); border: 1px solid var(--border); color: white; padding: 5px 15px; cursor: pointer; border-radius: 6px; margin-left: 5px; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo" onclick="showHome()">KnoxHub</div>
+    <input type="text" class="search-bar" id="search" placeholder="Search pastes..." onkeyup="filterPastes()">
+    <button class="add-btn" onclick="showCreate()">+</button>
+</nav>
+
+<div class="container">
+    <div id="homeView">
+        <h3 id="loading">Loading data from the void...</h3>
+        <div id="pasteList"></div>
+    </div>
+
+    <div id="createView" class="hidden">
+        <h2>Create New Permanent Paste</h2>
+        <div class="form-group">
+            <input type="text" id="titleInput" placeholder="Paste Title (required)">
+            <textarea id="contentInput" placeholder="Enter your data here..."></textarea>
+            <button class="publish-btn" onclick="publishPaste()">PUBLISH TO KNOXHUB</button>
+            <button onclick="showHome()" style="background:transparent; border:none; color:gray; cursor:pointer;">Cancel</button>
+        </div>
+    </div>
+
+    <div id="fullView" class="hidden">
+        <div class="view-header">
+            <h2 id="displayTitle"></h2>
+            <div>
+                <button class="action-btn" onclick="copyText()">Copy</button>
+                <button class="action-btn" onclick="downloadText()">Download</button>
+                <button class="action-btn" onclick="showHome()">Back</button>
+            </div>
+        </div>
+        <pre id="displayContent"></pre>
+    </div>
+</div>
+
+<script>
+    // --- CONFIGURATION ---
+    const SUPABASE_URL = 'YOUR_SUPABASE_URL';
+    const SUPABASE_KEY = 'YOUR_SUPABASE_ANON_KEY';
+    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    let allPastes = [];
+
+    // --- NAVIGATION ---
+    function showHome() {
+        document.getElementById('homeView').classList.remove('hidden');
+        document.getElementById('createView').classList.add('hidden');
+        document.getElementById('fullView').classList.add('hidden');
+        loadPastes();
+    }
+
+    function showCreate() {
+        document.getElementById('homeView').classList.add('hidden');
+        document.getElementById('createView').classList.remove('hidden');
+    }
+
+    function viewPaste(title, content) {
+        document.getElementById('homeView').classList.add('hidden');
+        document.getElementById('fullView').classList.remove('hidden');
+        document.getElementById('displayTitle').innerText = title;
+        document.getElementById('displayContent').innerText = content;
+    }
+
+    // --- LOGIC ---
+    async function loadPastes() {
+        const { data, error } = await supabase.from('pastes').select('*').order('created_at', { ascending: false });
+        if (data) {
+            allPastes = data;
+            renderPastes(data);
+            document.getElementById('loading').classList.add('hidden');
+        }
+    }
+
+    function renderPastes(list) {
+        const container = document.getElementById('pasteList');
+        container.innerHTML = '';
+        list.forEach(p => {
+            const div = document.createElement('div');
+            div.className = 'paste-card';
+            div.innerHTML = `<div class="paste-title">${p.title}</div><small style="color:gray">${new Date(p.created_at).toLocaleDateString()}</small>`;
+            div.onclick = () => viewPaste(p.title, p.content);
+            container.appendChild(div);
+        });
+    }
+
+    async function publishPaste() {
+        const title = document.getElementById('titleInput').value;
+        const content = document.getElementById('contentInput').value;
+
+        // Anti-Brainrot
+        const brainrot = ["skibidi", "rizz", "gyatt"];
+        if (brainrot.some(word => content.toLowerCase().includes(word) || title.toLowerCase().includes(word))) {
+            alert("Brainrot detected. KnoxHub is for high-quality data only.");
+            return;
+        }
+
+        if (!title || !content) return alert("Fill all fields");
+
+        const { error } = await supabase.from('pastes').insert([{ title, content }]);
+        if (!error) {
+            document.getElementById('titleInput').value = '';
+            document.getElementById('contentInput').value = '';
+            showHome();
+        }
+    }
+
+    function filterPastes() {
+        const query = document.getElementById('search').value.toLowerCase();
+        const filtered = allPastes.filter(p => p.title.toLowerCase().includes(query));
+        renderPastes(filtered);
+    }
+
+    function copyText() {
+        const text = document.getElementById('displayContent').innerText;
+        navigator.clipboard.writeText(text);
+        alert("Copied to clipboard!");
+    }
+
+    function downloadText() {
+        const title = document.getElementById('displayTitle').innerText;
+        const text = document.getElementById('displayContent').innerText;
+        const blob = new Blob([text], { type: 'text/plain' });
+        const anchor = document.createElement('a');
+        anchor.download = `${title}.txt`;
+        anchor.href = (window.webkitURL || window.URL).createObjectURL(blob);
+        anchor.click();
+    }
+
+    window.onload = loadPastes;
+</script>
+</body>
+</html>
