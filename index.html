@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>Best Free Roblox Scripts | KnoxHub</title>
+<meta name="description" content="KnoxHub is the stable, feature-rich Roblox script loader. Built for mobile and PC. Free forever. Trusted by 20,000+ users."/>
+<meta name="keywords" content="KnoxHub, Knox Hub, KnoxHub Roblox, Knox Hub script, Roblox script loader, Roblox executor, free Roblox script, mobile Roblox script, knoxhub.cc"/>
+<meta name="robots" content="index, follow"/>
+<meta property="og:title" content="KnoxHub – Roblox Script Loader | Free, Mobile & PC"/>
+<meta property="og:description" content="KnoxHub is the stable, feature-rich Roblox script loader. Built for mobile and PC. Free forever. Trusted by 20,000+ users."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://knoxhub.cc"/>
+<meta property="og:site_name" content="KnoxHub"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="KnoxHub – Roblox Script Loader | Free, Mobile & PC"/>
+<meta name="twitter:description" content="KnoxHub is the stable, feature-rich Roblox script loader. Built for mobile and PC. Free forever."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{
+  font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:#000;
+  color:#fff;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* BG */
+.bg-fixed{position:fixed;inset:0;z-index:0;pointer-events:none}
+.bg-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);
+  background-size:72px 72px;
+}
+.bg-orb1{
+  position:absolute;width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(110,50,230,0.16) 0%,transparent 70%);
+  top:-250px;left:-200px;filter:blur(80px);
+  animation:d1 18s ease-in-out infinite;
+}
+.bg-orb2{
+  position:absolute;width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(90,30,200,0.12) 0%,transparent 70%);
+  bottom:-200px;right:-150px;filter:blur(80px);
+  animation:d2 22s ease-in-out infinite;
+}
+@keyframes d1{0%,100%{transform:translate(0,0)}50%{transform:translate(90px,70px)}}
+@keyframes d2{0%,100%{transform:translate(0,0)}50%{transform:translate(-70px,-90px)}}
+#ptc{position:absolute;inset:0;opacity:.35}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  height:66px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 2rem;
+  background:rgba(0,0,0,0.75);
+  backdrop-filter:blur(28px) saturate(160%);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+.brand-name{
+  font-family:'Space Grotesk','Arial Black',Arial,sans-serif;
+  font-size:1.3rem;font-weight:800;color:#fff;letter-spacing:.02em;
+}
+.ntabs{display:flex;align-items:center;gap:2px;list-style:none}
+.ntabs a{
+  padding:.4rem .95rem;font-size:.78rem;font-weight:500;
+  letter-spacing:.07em;text-transform:uppercase;
+  color:rgba(255,255,255,0.4);text-decoration:none;
+  border-radius:8px;transition:color .2s,background .2s;
+}
+.ntabs a:hover,.ntabs a.active{color:#fff;background:rgba(255,255,255,0.07)}
+.ntabs a.active{color:#fff}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px}
+.hbg span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+.hbg.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hbg.open span:nth-child(2){opacity:0}
+.hbg.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobmenu{
+  display:none;position:fixed;top:66px;left:0;right:0;z-index:998;
+  background:rgba(0,0,0,0.96);backdrop-filter:blur(28px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  padding:.75rem 0 1.25rem;
+}
+.mobmenu.open{display:block}
+.mobmenu a{
+  display:block;padding:.85rem 2rem;
+  font-size:.85rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);text-decoration:none;
+  border-left:2px solid transparent;transition:all .22s;
+}
+.mobmenu a:hover,.mobmenu a.active{color:#fff;border-left-color:rgba(150,90,255,0.8);padding-left:2.4rem}
+
+/* MAIN */
+main{position:relative;z-index:1;padding-top:66px}
+
+/* HERO */
+.hero{
+  min-height:calc(100vh - 66px);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+  padding:4rem 1.5rem 5rem;
+  position:relative;
+}
+
+/* rings */
+.ring{
+  position:absolute;border-radius:50%;
+  border:1px solid rgba(130,70,255,0.1);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  pointer-events:none;animation:rp 5s ease-in-out infinite;
+}
+.ring:nth-child(1){width:520px;height:520px}
+.ring:nth-child(2){width:730px;height:730px;border-color:rgba(130,70,255,0.06);animation-delay:1s}
+.ring:nth-child(3){width:940px;height:940px;border-color:rgba(130,70,255,0.03);animation-delay:2s}
+@keyframes rp{0%,100%{opacity:.8;transform:translate(-50%,-50%) scale(1)}50%{opacity:.4;transform:translate(-50%,-50%) scale(1.03)}}
+
+.hero-inner{
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;
+  align-items:center;
+}
+
+@keyframes globeFadeIn{from{opacity:0;transform:translateY(30px) scale(.94)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+/* glow under globe */
+@keyframes glowPulse{0%,100%{opacity:.8;transform:translateX(-50%) scaleX(1)}50%{opacity:.4;transform:translateX(-50%) scaleX(.7)}}
+
+/* TITLE */
+.hero-title{
+  font-family:'Space Grotesk','Arial Black',Arial,sans-serif;
+  font-size:clamp(4rem,13vw,9.5rem);
+  font-weight:800;line-height:.9;
+  letter-spacing:-.03em;
+  color:#fff;
+  margin-bottom:1.4rem;
+  animation:titleIn .9s .15s cubic-bezier(.22,1,.36,1) both;
+  position:relative;z-index:2;
+}
+@keyframes titleIn{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+
+.hero-sub{
+  font-size:clamp(.95rem,2.2vw,1.1rem);font-weight:400;
+  color:rgba(255,255,255,0.38);
+  max-width:480px;line-height:1.8;
+  margin:0 auto 2.8rem;
+  animation:fadeUp .8s .35s ease both;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+.hero-btns{
+  display:flex;align-items:center;gap:.9rem;flex-wrap:wrap;justify-content:center;
+  animation:fadeUp .8s .5s ease both;
+}
+
+.btn-fill{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:.8rem 2.2rem;
+  background:#fff;color:#000;
+  font-size:.8rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  text-decoration:none;border-radius:100px;border:1.5px solid #fff;
+  transition:all .3s cubic-bezier(.22,1,.36,1);
+  position:relative;overflow:hidden;
+}
+.btn-fill::after{
+  content:'';position:absolute;inset:0;border-radius:100px;
+  background:linear-gradient(135deg,rgba(167,139,250,.7),rgba(110,50,230,.9));
+  opacity:0;transition:opacity .3s;
+}
+.btn-fill:hover{color:#fff;border-color:rgba(167,139,250,.5);transform:translateY(-2px);box-shadow:0 8px 32px rgba(110,50,230,.4)}
+.btn-fill:hover::after{opacity:1}
+.btn-fill>*{position:relative;z-index:1}
+
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:.8rem 2.2rem;
+  background:transparent;color:#fff;
+  font-size:.8rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+  text-decoration:none;border-radius:100px;
+  border:1.5px solid rgba(255,255,255,0.18);
+  transition:all .3s cubic-bezier(.22,1,.36,1);
+}
+.btn-ghost:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.06);transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,255,255,.05)}
+
+/* STATS */
+.stats{
+  position:relative;z-index:1;
+  border-top:1px solid rgba(255,255,255,0.06);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  padding:2.8rem 1.5rem;
+  display:flex;align-items:center;justify-content:center;
+  gap:4rem;flex-wrap:wrap;
+}
+.stat-num{
+  font-family:'Space Grotesk','Arial Black',Arial,sans-serif;font-size:2rem;font-weight:800;color:#fff;
+  display:block;margin-bottom:.2rem;
+}
+.stat-label{font-size:.7rem;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+
+/* FEATURES */
+.features{
+  position:relative;z-index:1;
+  padding:6rem 1.5rem 7rem;
+  max-width:1100px;margin:0 auto;
+}
+.sec-eye{
+  font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.3);
+  display:flex;align-items:center;gap:10px;margin-bottom:.9rem;
+}
+.sec-eye::before{content:'';width:20px;height:1px;background:rgba(255,255,255,.2)}
+.sec-h{
+  font-family:'Space Grotesk','Arial Black',Arial,sans-serif;
+  font-size:clamp(2rem,5vw,3rem);font-weight:800;letter-spacing:-.02em;
+  color:#fff;line-height:1.05;margin-bottom:3.5rem;max-width:420px;
+}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:20px;padding:2.2rem 1.8rem;
+  position:relative;overflow:hidden;
+  transition:border-color .35s,background .35s,transform .35s;cursor:default;
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(167,139,250,.5),transparent);
+  opacity:0;transition:opacity .35s;
+}
+.card:hover{border-color:rgba(167,139,250,.25);background:rgba(110,50,230,.05);transform:translateY(-5px)}
+.card:hover::before{opacity:1}
+.card-icon{
+  width:46px;height:46px;border-radius:12px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:1.3rem;
+  transition:border-color .35s,box-shadow .35s,background .35s;
+  position:relative;z-index:1;
+}
+.card:hover .card-icon{background:rgba(110,50,230,.15);border-color:rgba(167,139,250,.4);box-shadow:0 0 18px rgba(110,50,230,.3)}
+.card-icon svg{width:21px;height:21px;stroke:#fff;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.card-title{font-size:.95rem;font-weight:700;color:#fff;margin-bottom:.5rem;letter-spacing:-.01em;position:relative;z-index:1}
+.card-desc{font-size:.855rem;font-weight:400;color:rgba(255,255,255,.38);line-height:1.72;position:relative;z-index:1}
+
+/* SCRIPT SECTION */
+.script-section{
+  position:relative;z-index:1;
+  padding:5rem 1.5rem 4rem;
+  max-width:760px;margin:0 auto;
+}
+.script-section-eye{
+  font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.3);
+  display:flex;align-items:center;gap:10px;margin-bottom:.9rem;
+}
+.script-section-eye::before{content:'';width:20px;height:1px;background:rgba(255,255,255,.2)}
+.script-section-title{
+  font-family:'Space Grotesk','Arial Black',Arial,sans-serif;
+  font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;letter-spacing:-.02em;
+  color:#fff;margin-bottom:.6rem;
+}
+.script-section-sub{
+  font-size:.85rem;color:rgba(255,255,255,.35);line-height:1.7;margin-bottom:2rem;
+}
+.script-box{
+  position:relative;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:16px;
+  overflow:hidden;
+}
+.script-box-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.75rem 1.2rem;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  background:rgba(255,255,255,.02);
+}
+.script-box-lang{
+  font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  color:rgba(167,139,250,.7);
+}
+.script-copy-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:.3rem .75rem;
+  font-size:.65rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:6px;cursor:pointer;
+  transition:all .2s;
+  outline:none;
+}
+.script-copy-btn:hover{color:#fff;background:rgba(167,139,250,.15);border-color:rgba(167,139,250,.4)}
+.script-copy-btn.copied{color:rgba(120,220,130,.9);border-color:rgba(120,220,130,.4);background:rgba(120,220,130,.08)}
+.script-copy-btn svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.script-code{
+  padding:1.4rem 1.5rem;
+  font-family:'Courier New',Courier,monospace;
+  font-size:.78rem;line-height:1.7;
+  color:rgba(220,200,255,.85);
+  white-space:pre-wrap;word-break:break-all;
+  user-select:all;
+}
+
+/* KEY MODAL */
+.key-overlay{
+  position:fixed;inset:0;z-index:1100;
+  background:rgba(0,0,0,.75);
+  backdrop-filter:blur(12px);
+  display:flex;align-items:center;justify-content:center;
+  padding:1.5rem;
+  opacity:0;pointer-events:none;
+  transition:opacity .25s;
+}
+.key-overlay.open{opacity:1;pointer-events:all}
+.key-modal{
+  background:#0a0a0a;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:20px;
+  padding:2.5rem 2rem 2rem;
+  max-width:400px;width:100%;
+  text-align:center;
+  position:relative;
+  transform:translateY(20px) scale(.97);
+  transition:transform .3s cubic-bezier(.22,1,.36,1);
+  box-shadow:0 0 60px rgba(110,50,230,.2);
+}
+.key-overlay.open .key-modal{transform:translateY(0) scale(1)}
+.key-modal-close{
+  position:absolute;top:1rem;right:1rem;
+  width:28px;height:28px;border-radius:8px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);
+  color:rgba(255,255,255,.4);font-size:1rem;line-height:1;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all .2s;
+}
+.key-modal-close:hover{background:rgba(255,255,255,.12);color:#fff}
+.key-modal-icon{
+  width:52px;height:52px;border-radius:14px;
+  background:rgba(110,50,230,.15);border:1px solid rgba(167,139,250,.25);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1.2rem;
+}
+.key-modal-icon svg{width:22px;height:22px;stroke:rgba(167,139,250,.9);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.key-modal-title{
+  font-family:'Space Grotesk','Arial Black',Arial,sans-serif;font-size:1.2rem;font-weight:800;
+  color:#fff;margin-bottom:.5rem;letter-spacing:-.01em;
+}
+.key-modal-desc{
+  font-size:.82rem;color:rgba(255,255,255,.38);line-height:1.7;
+  margin-bottom:1.8rem;
+}
+.key-modal-btns{display:flex;gap:.75rem;flex-wrap:wrap}
+.key-btn-buy{
+  flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:.8rem 1rem;
+  background:#fff;color:#000;
+  font-size:.78rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  text-decoration:none;border-radius:100px;
+  border:1.5px solid #fff;
+  transition:all .3s cubic-bezier(.22,1,.36,1);
+  position:relative;overflow:hidden;
+}
+.key-btn-buy::after{content:'';position:absolute;inset:0;border-radius:100px;background:linear-gradient(135deg,rgba(167,139,250,.7),rgba(110,50,230,.9));opacity:0;transition:opacity .3s}
+.key-btn-buy:hover{color:#fff;border-color:rgba(167,139,250,.5);transform:translateY(-2px);box-shadow:0 8px 28px rgba(110,50,230,.4)}
+.key-btn-buy:hover::after{opacity:1}
+.key-btn-buy>*{position:relative;z-index:1}
+.key-btn-free{
+  flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:.8rem 1rem;
+  background:transparent;color:#fff;
+  font-size:.78rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  text-decoration:none;border-radius:100px;
+  border:1.5px solid rgba(255,255,255,.18);
+  transition:all .3s cubic-bezier(.22,1,.36,1);
+}
+.key-btn-free:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.06);transform:translateY(-2px)}
+
+/* GLOBAL EXECUTION SECTION */
+.global-exec-section{
+  position:relative;z-index:1;
+  padding:5rem 1.5rem 6rem;
+  display:flex;flex-direction:column;
+  align-items:center;
+  border-top:1px solid rgba(255,255,255,0.06);
+  overflow:hidden;
+}
+.global-exec-section::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 60%,rgba(110,50,230,0.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+
+/* connection line above globe */
+.globe-connector{
+  display:flex;flex-direction:column;align-items:center;
+  margin-bottom:0;
+  animation:fadeUp .8s .3s ease both;
+}
+.connector-line{
+  width:1px;height:60px;
+  background:linear-gradient(to bottom, transparent, rgba(167,139,250,0.6), rgba(167,139,250,0.9));
+  position:relative;
+}
+.connector-line::before{
+  content:'';
+  position:absolute;
+  top:0;left:50%;transform:translateX(-50%);
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(167,139,250,0.5);
+  box-shadow:0 0 10px rgba(167,139,250,0.6);
+}
+.connector-nodes{
+  display:flex;align-items:center;gap:1.2rem;
+  margin-bottom:0;
+}
+.connector-node{
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(167,139,250,0.7);
+  box-shadow:0 0 12px rgba(167,139,250,0.8);
+  animation:nodePulse 2s ease-in-out infinite;
+}
+.connector-node:nth-child(2){animation-delay:.4s;background:rgba(200,170,255,0.9);box-shadow:0 0 16px rgba(200,170,255,0.9)}
+.connector-node:nth-child(3){animation-delay:.8s}
+.connector-h-line{
+  width:60px;height:1px;
+  background:linear-gradient(to right,rgba(167,139,250,0.4),rgba(167,139,250,0.8));
+}
+.connector-h-line.right{
+  background:linear-gradient(to left,rgba(167,139,250,0.4),rgba(167,139,250,0.8));
+}
+@keyframes nodePulse{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.5);opacity:1}}
+
+/* bottom connector line globe → text */
+.connector-line-bottom{
+  width:1px;height:50px;
+  background:linear-gradient(to bottom, rgba(167,139,250,0.9), rgba(167,139,250,0.3), transparent);
+  position:relative;
+}
+.connector-line-bottom::after{
+  content:'';
+  position:absolute;
+  bottom:0;left:50%;transform:translateX(-50%);
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(167,139,250,0.5);
+  box-shadow:0 0 10px rgba(167,139,250,0.5);
+}
+
+/* BOTTOM GLOBE */
+.bottom-globe-wrap{
+  position:relative;
+  width:280px;height:280px;
+  animation:globeFadeIn 1.2s .4s cubic-bezier(.22,1,.36,1) both;
+}
+.bottom-globe-glow{
+  position:absolute;bottom:5px;left:50%;transform:translateX(-50%);
+  width:180px;height:25px;
+  background:radial-gradient(ellipse,rgba(140,80,255,0.4) 0%,transparent 70%);
+  filter:blur(14px);
+  border-radius:50%;
+  animation:glowPulse 3s ease-in-out infinite;
+}
+#globe-bottom{width:100%;height:100%;display:block}
+
+/* outer ring decorations around bottom globe */
+.bottom-globe-ring{
+  position:absolute;border-radius:50%;
+  border:1px solid rgba(130,70,255,0.12);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  pointer-events:none;
+  animation:rp 4s ease-in-out infinite;
+}
+.bottom-globe-ring:nth-child(1){width:320px;height:320px}
+.bottom-globe-ring:nth-child(2){width:380px;height:380px;border-color:rgba(130,70,255,0.07);animation-delay:.8s}
+
+.global-exec-label{
+  font-family:'Space Grotesk','Arial Black',Arial,sans-serif;
+  font-size:clamp(1.6rem,4vw,2.6rem);
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  background:linear-gradient(135deg,#fff 30%,rgba(167,139,250,0.85) 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-top:1.8rem;
+  text-align:center;
+  position:relative;
+}
+.global-exec-sub{
+  font-size:.8rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.3);
+  margin-top:.6rem;
+  text-align:center;
+}
+
+/* FOOTER */
+footer{
+  position:relative;z-index:1;
+  border-top:1px solid rgba(255,255,255,.06);
+  padding:2.2rem 2rem;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+.foot-name{font-family:'Space Grotesk','Arial Black',Arial,sans-serif;font-size:.78rem;font-weight:800;letter-spacing:.15em;color:rgba(255,255,255,.14);text-transform:lowercase}
+.foot-copy{font-size:.7rem;color:rgba(255,255,255,.1);letter-spacing:.04em}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+.rv.on{opacity:1;transform:translateY(0)}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}.rv.d4{transition-delay:.32s}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+  .ntabs{display:none}.hbg{display:flex}
+  .cards{grid-template-columns:1fr}
+  .stats{gap:2rem}
+  .globe-wrap{width:260px;height:260px}
+  .bottom-globe-wrap{width:200px;height:200px}
+  .bottom-globe-ring:nth-child(1){width:240px;height:240px}
+  .bottom-globe-ring:nth-child(2){width:290px;height:290px}
+  footer{flex-direction:column;align-items:flex-start}
+  .connector-nodes{gap:.8rem}
+  .connector-h-line{width:35px}
+}
+
+@media(max-width:480px){
+  .stats{gap:1.5rem}
+  .global-exec-label{font-size:1.1rem}
+  .hero-btns{flex-direction:column;width:100%}
+  .btn-fill,.btn-ghost{justify-content:center;width:100%;max-width:280px}
+}
+
+/* SCRIPTS PAGE */
+.scripts-page{
+  position:relative;z-index:1;
+  padding:5rem 1.5rem 6rem;
+  max-width:900px;margin:0 auto;
+}
+.scripts-page-header{margin-bottom:3rem}
+.scripts-page-sub{
+  font-size:.88rem;color:rgba(255,255,255,.35);line-height:1.7;margin-top:.5rem;
+}
+.scripts-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;
+}
+.script-card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;padding:1.8rem;
+  transition:border-color .3s,background .3s;
+}
+.script-card:hover{border-color:rgba(167,139,250,.3);background:rgba(110,50,230,.05)}
+.script-card-top{
+  display:flex;align-items:center;gap:1rem;margin-bottom:1.4rem;
+}
+.script-card-icon{
+  width:44px;height:44px;border-radius:12px;flex-shrink:0;
+  background:rgba(110,50,230,.15);border:1px solid rgba(167,139,250,.25);
+  display:flex;align-items:center;justify-content:center;
+}
+.script-card-icon svg{width:20px;height:20px;stroke:rgba(167,139,250,.9)}
+.script-card-name{font-size:1rem;font-weight:700;color:#fff;margin-bottom:.2rem}
+.script-card-tag{font-size:.72rem;font-weight:500;letter-spacing:.08em;color:rgba(167,139,250,.7);text-transform:uppercase}
+.script-box{
+  background:rgba(0,0,0,.4);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;overflow:hidden;
+}
+.script-box-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.65rem 1rem;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  background:rgba(255,255,255,.02);
+}
+.script-box-lang{
+  font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  color:rgba(167,139,250,.7);
+}
+.script-copy-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:.28rem .7rem;
+  font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:6px;cursor:pointer;
+  transition:all .2s;outline:none;font-family:inherit;
+}
+.script-copy-btn:hover{color:#fff;background:rgba(167,139,250,.15);border-color:rgba(167,139,250,.4)}
+.script-copy-btn.copied{color:rgba(120,220,130,.9);border-color:rgba(120,220,130,.4);background:rgba(120,220,130,.08)}
+.script-copy-btn svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.script-code{
+  padding:1.1rem 1.2rem;
+  font-family:'Courier New',Courier,monospace;
+  font-size:.75rem;line-height:1.7;
+  color:rgba(220,200,255,.8);
+  white-space:pre-wrap;word-break:break-all;
+.social-btns{
+  display:flex;flex-direction:column;align-items:center;gap:2.2rem;
+  width:100%;
+}
+.contact-box{
+  margin-top:2.5rem;text-align:center;
+}
+.contact-title{
+  font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.3);margin-bottom:1rem;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.contact-title::before,.contact-title::after{content:'';width:30px;height:1px;background:rgba(255,255,255,.1)}
+.contact-items{
+  display:flex;flex-direction:column;align-items:center;gap:.6rem;
+}
+.contact-item{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.85rem;color:#fff;
+  text-decoration:none;
+}
+.contact-item:not(.no-link):hover{color:#fff}
+.contact-or{
+  font-size:.7rem;color:rgba(255,255,255,.2);letter-spacing:.1em;text-transform:uppercase;
+}
+.social-btn{
+  width:100%;max-width:360px;justify-content:center;
+  padding:1.1rem 2.5rem;font-size:.95rem;letter-spacing:.08em;
+}
+.keysystem-card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;padding:2.2rem;
+  max-width:480px;
+}
+.key-page-desc{
+  font-size:.85rem;color:rgba(255,255,255,.38);line-height:1.75;
+}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:#000}
+::-webkit-scrollbar-thumb{background:#1a1a1a;border-radius:5px}
+::-webkit-scrollbar-thumb:hover{background:#7c3aed}
+</style>
+</head>
+<body>
+
+<div class="bg-fixed">
+  <canvas id="ptc"></canvas>
+  <div class="bg-grid"></div>
+  <div class="bg-orb1"></div>
+  <div class="bg-orb2"></div>
+</div>
+
+<nav>
+  <a href="#" onclick="showPage('home');return false;" class="brand">
+    <span class="brand-name">KnoxHub</span>
+  </a>
+  <ul class="ntabs">
+    <li><a href="#" onclick="showPage('home');return false;" class="nav-link active" data-page="home">Dashboard</a></li>
+    <li><a href="#" onclick="showPage('scripts');return false;" class="nav-link" data-page="scripts">Scripts</a></li>
+    <li><a href="https://knoxstore.mysellauth.com/" target="_blank" rel="noopener">Shop</a></li>
+    <li><a href="#" onclick="showPage('social');return false;" class="nav-link" data-page="social">Social</a></li>
+    <li><a href="#" onclick="showPage('keysystem');return false;" class="nav-link" data-page="keysystem">Key System</a></li>
+  </ul>
+  <div class="hbg" id="hbg" onclick="toggleMob()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobmenu" id="mobmenu">
+  <a href="#" onclick="showPage('home');toggleMob();return false;" class="mob-link active" data-page="home">Dashboard</a>
+  <a href="#" onclick="showPage('scripts');toggleMob();return false;" class="mob-link" data-page="scripts">Scripts</a>
+  <a href="https://knoxstore.mysellauth.com/" target="_blank" rel="noopener">Shop</a>
+  <a href="#" onclick="showPage('social');toggleMob();return false;" class="mob-link" data-page="social">Social</a>
+  <a href="#" onclick="showPage('keysystem');toggleMob();return false;" class="mob-link" data-page="keysystem">Key System</a>
+</div>
+
+<main>
+
+<!-- HOME PAGE -->
+<div id="page-home">
+  <section class="hero">
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+
+    <div class="hero-inner">
+      <h1 class="hero-title">KnoxHub</h1>
+      <p class="hero-sub">The stable, feature-rich Roblox script.<br/>Built for mobile and PC.</p>
+      <div class="hero-btns">
+        <a href="#" onclick="showPage('scripts');return false;" class="btn-fill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <span>Get Script</span>
+        </a>
+        <a href="https://discord.gg/KacMWYsyAc" target="_blank" rel="noopener" class="btn-ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.053a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 13.84 13.84 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.1.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+          Join Discord
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="rv"><span class="stat-num">20K+</span><span class="stat-label">Active Users</span></div>
+    <div class="rv d1"><span class="stat-num">99%</span><span class="stat-label">Execution Rate</span></div>
+    <div class="rv d2"><span class="stat-num">24/7</span><span class="stat-label">Cloud Updates</span></div>
+    <div class="rv d3"><span class="stat-num">Free</span><span class="stat-label">No Paywall</span></div>
+  </div>
+
+  <section class="features">
+    <p class="sec-eye rv">What We Offer</p>
+    <h2 class="sec-h rv d1">Built different.<br/>Runs everywhere.</h2>
+    <div class="cards">
+      <div class="card rv d1">
+        <div class="card-icon"><svg viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <p class="card-title">Lightning Fast Execution</p>
+        <p class="card-desc">Optimized for low-end devices and mobile executors. No lag, no stutter — raw performance on any hardware.</p>
+      </div>
+      <div class="card rv d2">
+        <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
+        <p class="card-title">Cloud-Based Updates</p>
+        <p class="card-desc">No need to copy a new script every time. Load once, stay updated — pulled from the cloud automatically.</p>
+      </div>
+      <div class="card rv d3">
+        <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <p class="card-title">Security First</p>
+        <p class="card-desc">Hardened obfuscation to keep your account and experience safe. Protection built in from the ground up.</p>
+      </div>
+      <div class="card rv d4">
+        <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+        <p class="card-title">Free to Use</p>
+        <p class="card-desc">Most scripts are completely free. Some come with a simple key system — premium power without the price.</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- KEY SYSTEM MODAL -->
+  <div class="key-overlay" id="keyOverlay" onclick="closeKeyModal(event)">
+    <div class="key-modal">
+      <button class="key-modal-close" onclick="closeKeyModalBtn()">✕</button>
+      <div class="key-modal-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+      </div>
+      <p class="key-modal-title">Key Required</p>
+      <p class="key-modal-desc">Some of our Scripts requires a key to run.<br/>You can buy instant access or get a free key by completing the key system, execute the script and click get key and paste the link in browser or you can see a tutorial from KeySystem.</p>
+      <div class="key-modal-btns">
+        <a href="https://knoxhub.cc/shops" target="_blank" rel="noopener" class="key-btn-buy">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          Buy
+        </a>
+        <a href="https://youtube.com/shorts/OlT9R58_XLU?si=M4sk-BsOpgBNVZDp" target="_blank" rel="noopener" class="key-btn-free">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Key System
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- GLOBAL EXECUTION SECTION WITH BOTTOM GLOBE -->
+  <section class="global-exec-section rv">
+    <div class="bottom-globe-wrap">
+      <div class="bottom-globe-ring"></div>
+      <div class="bottom-globe-ring"></div>
+      <canvas id="globe-bottom"></canvas>
+      <div class="bottom-globe-glow"></div>
+    </div>
+    <div class="connector-line-bottom"></div>
+    <p class="global-exec-label">Global Execution</p>
+    <p class="global-exec-sub">Trusted by 20,000+ users worldwide</p>
+  </section>
+</div><!-- end page-home -->
+
+<!-- SCRIPTS PAGE -->
+<div id="page-scripts" style="display:none;">
+  <section class="scripts-page">
+    <div class="scripts-page-header rv">
+      <p class="sec-eye">KnoxHub</p>
+      <h2 class="sec-h">Scripts</h2>
+      <p class="scripts-page-sub">Copy the script below and paste it into your executor.</p>
+    </div>
+    <div class="scripts-grid">
+      <div class="script-card rv d1">
+        <div class="script-card-top">
+          <div class="script-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div>
+            <p class="script-card-name">Steal A BrainRot Duels</p>
+          </div>
+        </div>
+        <div class="script-box">
+          <div class="script-box-header">
+            <span class="script-box-lang">Lua</span>
+            <button class="script-copy-btn" id="copyBtn" onclick="copyScript()">
+              <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy
+            </button>
+          </div>
+          <div class="script-code" id="scriptCode">loadstring(game:HttpGet("https://api.jnkie.com/api/v1/luascripts/public/ec5adf9bbbcccd00bf7455735daff839d56f031745693309822ca59a6fa28c16/download"))()</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- end page-scripts -->
+
+<!-- KEY SYSTEM PAGE -->
+<div id="page-keysystem" style="display:none;">
+  <section class="scripts-page">
+    <div class="scripts-page-header rv">
+      <p class="sec-eye">KnoxHub</p>
+      <h2 class="sec-h">Key System</h2>
+      <p class="scripts-page-sub">Some of our scripts require a key to run. Buy instant access or get a free key by completing the key system.</p>
+    </div>
+    <div class="keysystem-card rv d1">
+      <div class="key-modal-icon" style="margin:0 0 1.4rem 0;">
+        <svg viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+      </div>
+      <p class="script-card-name" style="font-size:1.1rem;margin-bottom:.7rem;">Key Required</p>
+      <p class="key-page-desc">Some of our Scripts requires a key to run.<br/>You can buy instant access or get a free key by completing the key system, execute the script and click get key and paste the link in browser or you can see a tutorial from KeySystem.</p>
+      <div class="key-modal-btns" style="margin-top:1.8rem;">
+        <a href="https://knoxhub.cc/shops" target="_blank" rel="noopener" class="key-btn-buy">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          Buy
+        </a>
+        <a href="https://youtube.com/shorts/OlT9R58_XLU?si=M4sk-BsOpgBNVZDp" target="_blank" rel="noopener" class="key-btn-free">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Key System
+        </a>
+      </div>
+    </div>
+  </section>
+</div><!-- end page-keysystem -->
+
+<!-- SOCIAL PAGE -->
+<div id="page-social" style="display:none;">
+  <section class="scripts-page">
+    <div class="scripts-page-header rv">
+      <p class="sec-eye">KnoxHub</p>
+      <h2 class="sec-h">Socials</h2>
+    </div>
+
+    <div style="display:flex;flex-direction:column;align-items:center;gap:2.8rem;width:100%;margin-top:2rem;">
+
+      <a href="https://discord.gg/KacMWYsyAc" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:14px;width:100%;max-width:420px;padding:1.4rem 2.5rem;border:1.5px solid rgba(255,255,255,0.22);border-radius:100px;color:#fff;text-decoration:none;font-size:1.05rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;background:transparent;transition:all .3s;" onmouseover="this.style.borderColor='rgba(255,255,255,.5)';this.style.background='rgba(255,255,255,.06)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,.22)';this.style.background='transparent';this.style.transform='translateY(0)'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.053a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.1.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+        Discord
+      </a>
+
+      <a href="https://github.com/knoxexploits" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:14px;width:100%;max-width:420px;padding:1.4rem 2.5rem;border:1.5px solid rgba(255,255,255,0.22);border-radius:100px;color:#fff;text-decoration:none;font-size:1.05rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;background:transparent;transition:all .3s;" onmouseover="this.style.borderColor='rgba(255,255,255,.5)';this.style.background='rgba(255,255,255,.06)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,.22)';this.style.background='transparent';this.style.transform='translateY(0)'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        GitHub
+      </a>
+
+      <a href="https://www.youtube.com/@KNOXSCRPT" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:14px;width:100%;max-width:420px;padding:1.4rem 2.5rem;border:1.5px solid rgba(255,255,255,0.22);border-radius:100px;color:#fff;text-decoration:none;font-size:1.05rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;background:transparent;transition:all .3s;" onmouseover="this.style.borderColor='rgba(255,255,255,.5)';this.style.background='rgba(255,255,255,.06)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,.22)';this.style.background='transparent';this.style.transform='translateY(0)'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        YouTube
+      </a>
+
+      <div style="margin-top:1rem;text-align:center;">
+        <p style="font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1.2rem;">Contact</p>
+        <p style="font-size:.9rem;color:#fff;margin-bottom:.7rem;">knoxexploits@gmail.com</p>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.3);margin-bottom:.7rem;">or</p>
+        <p style="font-size:.9rem;color:#fff;">ashcended <span style="color:rgba(255,255,255,.35);">(discord)</span></p>
+      </div>
+
+    </div>
+  </section>
+</div><!-- end page-social -->
+
+</main>
+
+<footer>
+  <span class="foot-name">knoxhub</span>
+  <span class="foot-copy">&copy; 2024 KnoxHub. All rights reserved.</span>
+</footer>
+
+<script>
+/* ── hamburger ── */
+function toggleMob(){
+  document.getElementById('hbg').classList.toggle('open');
+  document.getElementById('mobmenu').classList.toggle('open');
+}
+document.addEventListener('click',e=>{
+  const h=document.getElementById('hbg'),m=document.getElementById('mobmenu');
+  if(!h.contains(e.target)&&!m.contains(e.target)){h.classList.remove('open');m.classList.remove('open')}
+});
+
+
+
+/* ── page routing ── */
+const pageTitles = {
+  home: 'Best Free Roblox Scripts | KnoxHub',
+  scripts: 'Best Free Roblox Scripts | KnoxHub',
+  keysystem: 'Key System | KnoxHub',
+  social: 'Socials | KnoxHub'
+};
+const pageURLs = {
+  home: '/',
+  scripts: '/scripts',
+  keysystem: '/keysystem',
+  social: '/social'
+};
+
+function showPage(page, pushState=true){
+  ['home','scripts','keysystem','social'].forEach(p=>{
+    document.getElementById('page-'+p).style.display = p===page ? '' : 'none';
+  });
+  document.querySelectorAll('.nav-link').forEach(a=>{
+    a.classList.toggle('active', a.dataset.page===page);
+  });
+  document.querySelectorAll('.mob-link').forEach(a=>{
+    a.classList.toggle('active', a.dataset.page===page);
+  });
+  window.scrollTo(0,0);
+  document.querySelectorAll('#page-'+page+' .rv').forEach(el=>{
+    el.classList.remove('on');
+    setTimeout(()=>ro.observe(el),50);
+  });
+  // Update URL and title
+  if(pushState){
+    history.pushState({page}, '', pageURLs[page] || '/');
+  }
+  document.title = pageTitles[page] || 'KnoxHub';
+}
+
+// Handle browser back/forward
+window.addEventListener('popstate', e=>{
+  const page = (e.state && e.state.page) || 'home';
+  showPage(page, false);
+});
+
+// On load, read the URL path and show correct page
+(function(){
+  const path = window.location.pathname.replace(/^\//, '').replace(/\/$/, '') || 'home';
+  const validPages = ['home','scripts','keysystem','social'];
+  // Map URL path to page id (e.g. /dashboard → home, /scripts → scripts)
+  const urlToPage = { '': 'home', 'dashboard': 'home', 'scripts': 'scripts', 'keysystem': 'keysystem', 'social': 'social' };
+  const page = urlToPage[path] || (validPages.includes(path) ? path : 'home');
+  showPage(page, true);
+})();
+
+/* ── copy script ── */
+function copyScript(){
+  const code=document.getElementById('scriptCode').innerText;
+  const btn=document.getElementById('copyBtn');
+  function showCopied(){
+    btn.classList.add('copied');
+    btn.innerHTML='<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+    setTimeout(()=>{
+      btn.classList.remove('copied');
+      btn.innerHTML='<svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy';
+    },2200);
+  }
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(code).then(showCopied).catch(()=>fallbackCopy(code,showCopied));
+  } else {
+    fallbackCopy(code,showCopied);
+  }
+}
+function fallbackCopy(text,cb){
+  const ta=document.createElement('textarea');
+  ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.focus();ta.select();
+  try{document.execCommand('copy');cb();}catch(e){}
+  document.body.removeChild(ta);
+}
+function openKeyModal(){
+  document.getElementById('keyOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeKeyModalBtn(){
+  document.getElementById('keyOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeKeyModal(e){
+  if(e.target===document.getElementById('keyOverlay')) closeKeyModalBtn();
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape') closeKeyModalBtn()});
+
+/* ── shop redirect ── */
+document.querySelectorAll('a[href*="/shop"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const href=a.getAttribute('href');
+    if(href.includes('knoxhub.cc/shop')){
+      e.preventDefault();
+      window.open('https://knoxstore.mysellauth.com/','_blank');
+    }
+  });
+});
+
+/* init globe */
+makeGlobe('globe-bottom', 360, 22, .004);
+const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.13});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+/* ── background particles ── */
+(()=>{
+  const c=document.getElementById('ptc'),ctx=c.getContext('2d');
+  let W,H,ps=[];
+  const resize=()=>{W=c.width=window.innerWidth;H=c.height=window.innerHeight};
+  resize();window.addEventListener('resize',resize);
+  class P{
+    constructor(){this.init(true)}
+    init(r){this.x=Math.random()*W;this.y=r?Math.random()*H:H+5;this.s=Math.random()*1.4+.3;this.v=Math.random()*.4+.08;this.o=Math.random()*.45+.1;this.dx=(Math.random()-.5)*.22}
+    step(){this.y-=this.v;this.x+=this.dx;this.o-=.0007;if(this.y<-8||this.o<=0)this.init(false)}
+    draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.s,0,Math.PI*2);ctx.fillStyle=`rgba(167,139,250,${Math.max(0,this.o)})`;ctx.fill()}
+  }
+  for(let i=0;i<140;i++)ps.push(new P());
+  const loop=()=>{ctx.clearRect(0,0,W,H);ps.forEach(p=>{p.step();p.draw()});requestAnimationFrame(loop)};
+  loop();
+})();
+
+/* ── GLOBE factory ── */
+function makeGlobe(canvasId, dotCount, arcCount, speed){
+  const canvas = document.getElementById(canvasId);
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const DPR = window.devicePixelRatio || 1;
+  let SIZE = canvas.parentElement.clientWidth;
+  canvas.width = SIZE * DPR;
+  canvas.height = SIZE * DPR;
+  ctx.scale(DPR, DPR);
+
+  const CX = SIZE / 2, CY = SIZE / 2;
+  let R = SIZE * 0.42;
+  let rot = 0;
+
+  const dots = [];
+  for (let i = 0; i < dotCount; i++) {
+    const phi = Math.acos(1 - 2 * (i + .5) / dotCount);
+    const theta = Math.PI * (1 + Math.sqrt(5)) * i;
+    dots.push({ phi, theta });
+  }
+
+  const ARCS = [];
+  for (let i = 0; i < arcCount; i++) {
+    const a = Math.floor(Math.random() * dotCount);
+    let b = Math.floor(Math.random() * dotCount);
+    while (b === a) b = Math.floor(Math.random() * dotCount);
+    ARCS.push({ a, b, progress: Math.random(), speed: speed + Math.random() * .004 });
+  }
+
+  function project(phi, theta, rotY, cx, cy, r) {
+    const x = Math.sin(phi) * Math.cos(theta + rotY);
+    const y = Math.cos(phi);
+    const z = Math.sin(phi) * Math.sin(theta + rotY);
+    return { x: cx + x * r, y: cy - y * r, z };
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, SIZE, SIZE);
+
+    const grd = ctx.createRadialGradient(CX, CY, R * .7, CX, CY, R * 1.08);
+    grd.addColorStop(0, 'rgba(130,70,255,0.0)');
+    grd.addColorStop(.7, 'rgba(130,70,255,0.05)');
+    grd.addColorStop(1, 'rgba(130,70,255,0.0)');
+    ctx.beginPath();
+    ctx.arc(CX, CY, R * 1.08, 0, Math.PI * 2);
+    ctx.fillStyle = grd;
+    ctx.fill();
+
+    const sphereGrd = ctx.createRadialGradient(CX - R*.25, CY - R*.25, R*.05, CX, CY, R);
+    sphereGrd.addColorStop(0, 'rgba(160,120,255,0.09)');
+    sphereGrd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.beginPath();
+    ctx.arc(CX, CY, R, 0, Math.PI * 2);
+    ctx.fillStyle = sphereGrd;
+    ctx.fill();
+
+    for (const d of dots) {
+      const p = project(d.phi, d.theta, rot, CX, CY, R);
+      const bright = (p.z + 1) / 2;
+      if (bright < .08) continue;
+      const alpha = .08 + bright * .6;
+      const sz = .9 + bright * 1.2;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, sz, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${alpha})`;
+      ctx.fill();
+    }
+
+    for (const arc of ARCS) {
+      arc.progress += arc.speed;
+      if (arc.progress > 1.6) arc.progress = -.2;
+
+      const pa = project(dots[arc.a].phi, dots[arc.a].theta, rot, CX, CY, R);
+      const pb = project(dots[arc.b].phi, dots[arc.b].theta, rot, CX, CY, R);
+
+      const frontA = (pa.z + 1) / 2 > .25;
+      const frontB = (pb.z + 1) / 2 > .25;
+      if (!frontA && !frontB) continue;
+
+      const mx = (pa.x + pb.x) / 2;
+      const my = (pa.y + pb.y) / 2;
+      const dx = mx - CX, dy = my - CY;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      const bulge = 1 + (R * .22) / (dist + 1);
+      const cpx = CX + dx * bulge;
+      const cpy = CY + dy * bulge;
+
+      const t = Math.max(0, Math.min(1, arc.progress));
+      const tx = (1-t)*(1-t)*pa.x + 2*(1-t)*t*cpx + t*t*pb.x;
+      const ty = (1-t)*(1-t)*pa.y + 2*(1-t)*t*cpy + t*t*pb.y;
+
+      ctx.beginPath();
+      ctx.moveTo(pa.x, pa.y);
+      ctx.quadraticCurveTo(cpx, cpy, pb.x, pb.y);
+      ctx.strokeStyle = 'rgba(180,150,255,0.14)';
+      ctx.lineWidth = .8;
+      ctx.stroke();
+
+      if (arc.progress >= 0 && arc.progress <= 1) {
+        ctx.beginPath();
+        ctx.arc(tx, ty, 2.4, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(220,200,255,0.9)';
+        ctx.fill();
+        const dg = ctx.createRadialGradient(tx, ty, 0, tx, ty, 8);
+        dg.addColorStop(0, 'rgba(200,170,255,0.4)');
+        dg.addColorStop(1, 'rgba(200,170,255,0)');
+        ctx.beginPath();
+        ctx.arc(tx, ty, 8, 0, Math.PI * 2);
+        ctx.fillStyle = dg;
+        ctx.fill();
+      }
+    }
+
+    ctx.beginPath();
+    ctx.arc(CX, CY, R, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(255,255,255,0.09)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    rot += .003;
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+
+  window.addEventListener('resize', () => {
+    SIZE = canvas.parentElement.clientWidth;
+    R = SIZE * 0.42;
+    canvas.width = SIZE * DPR;
+    canvas.height = SIZE * DPR;
+    ctx.scale(DPR, DPR);
+  });
+}
+
+</script>
+</body>
+</html>
