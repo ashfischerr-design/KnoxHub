@@ -1,6 +1,0 @@
-[site]
-bucket = "./"
-
-[[rules]]
-type = "ESModule"
-globs = ["**/*.js"]
